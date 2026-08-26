@@ -1,0 +1,91 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  width: 100vw;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--base-500);
+  pointer-events: all;
+}
+
+.loader .overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+}
+
+.loader .block {
+  width: 50%;
+  height: 100%;
+  background: var(--base-500);
+  will-change: transform;
+}
+
+.loader .block:first-child {
+  transform-origin: left center;
+}
+
+.loader .block:last-child {
+  transform-origin: right center;
+}
+
+.loader .counter {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: min(94vw, 1440px);
+  height: clamp(7rem, 20vw, 16rem);
+  transform: translate(-50%, -50%);
+}
+
+.loader .count {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.loader .digit {
+  width: 100%;
+  padding: 0.22em 0 0.3em;
+  overflow: hidden;
+}
+
+.loader .count .digit h1 {
+  position: relative;
+  margin: 0;
+  color: var(--base-200);
+  font-family: var(--font-crimson-pro), serif;
+  font-size: clamp(4rem, 13vw, 12rem);
+  font-weight: 400;
+  letter-spacing: -0.065em;
+  line-height: 1.15;
+  text-align: center;
+  white-space: nowrap;
+  transform: translateY(125%);
+  will-change: transform;
+}
+
+.loader .count .digit h1.loader__word--italic {
+  font-style: italic;
+}
+
+@media (max-width: 700px) {
+  .loader .counter {
+    width: calc(100vw - 1.5rem);
+    height: 8.5rem;
+  }
+
+  .loader .count .digit h1 {
+    font-size: clamp(3.2rem, 17vw, 5.5rem);
+    line-height: 1.2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader {
+    display: none;
+  }
+}

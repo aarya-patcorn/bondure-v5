@@ -1,0 +1,429 @@
+/*
+ * Product Range hero — ported from a Magic Patterns React/Tailwind
+ * component into vanilla HTML/CSS/JS to match this project's stack.
+ *
+ * Original used Tailwind utility classes on a maroon-900/950 palette
+ * with an "ember" accent and Bodoni Moda serif headings. Reused here as
+ * scoped custom properties so it doesn't collide with the rest of the
+ * site's brand tokens (--ink, --font-serif, etc.) while keeping the
+ * exact look of the source design.
+ */
+
+.product-hero {
+  --product-hero-pastel: #d9eadc;
+  --product-hero-tint: #7ca786;
+  --product-hero-ink: #1f3928;
+  display: grid;
+  min-height: 100svh;
+  background: var(--product-hero-pastel);
+  color: var(--product-hero-ink);
+  transition: background 350ms ease, color 350ms ease;
+}
+
+.product-hero[data-palette="mortar"] {
+  --product-hero-pastel: #d7ece3;
+  --product-hero-tint: #78aa95;
+  --product-hero-ink: #1b3a30;
+}
+
+.product-hero[data-palette="adhesive"] {
+  --product-hero-pastel: #dde9f0;
+  --product-hero-tint: #7c9fb1;
+  --product-hero-ink: #203944;
+}
+
+.product-hero[data-palette="grout"] {
+  --product-hero-pastel: #e9e0ec;
+  --product-hero-tint: #a389ad;
+  --product-hero-ink: #3b2940;
+}
+
+.product-hero[data-palette="sealant"] {
+  --product-hero-pastel: #f2e1d5;
+  --product-hero-tint: #c29478;
+  --product-hero-ink: #4a3027;
+}
+
+.product-hero__visual {
+  position: relative;
+  min-height: 34rem;
+  overflow: hidden;
+  background: var(--product-hero-pastel);
+}
+
+.product-hero__image,
+.product-hero__shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.product-hero__image {
+  object-fit: cover;
+  object-position: center;
+  animation: product-hero-image-in 0.5s ease-out;
+}
+
+.product-hero__shade {
+  background: radial-gradient(
+    ellipse 82% 58% at 0% 100%,
+    color-mix(in srgb, var(--product-hero-pastel) 94%, transparent) 0%,
+    color-mix(in srgb, var(--product-hero-pastel) 76%, transparent) 45%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.product-hero__copy {
+  position: absolute;
+  right: 2rem;
+  bottom: 2.25rem;
+  left: 2rem;
+  z-index: 1;
+  max-width: 37rem;
+}
+
+.product-hero__eyebrow,
+.product-hero__item span,
+.product-hero__label {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.product-hero__eyebrow,
+.product-hero__label,
+.product-hero__item > span {
+  display: none;
+}
+
+.product-hero__eyebrow { color: color-mix(in srgb, var(--product-hero-ink) 62%, transparent); }
+
+.product-hero h1 {
+  margin: 0 0 0.8rem;
+  font-family: var(--font-sans);
+  font-size: clamp(3rem, 5vw, 5.25rem);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  line-height: 0.92;
+}
+
+.product-hero__copy > p:not(.product-hero__eyebrow) {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--product-hero-ink) 75%, transparent);
+}
+
+.product-hero__cta {
+  display: inline-flex;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.35rem;
+  color: var(--product-hero-ink);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.product-hero__categories { padding: 2rem; }
+.product-hero__label { color: color-mix(in srgb, var(--product-hero-ink) 43%, transparent); }
+.product-hero__list { margin-top: 0; border-top: 1px solid color-mix(in srgb, var(--product-hero-ink) 16%, transparent); }
+
+.product-hero__item {
+  display: grid;
+  width: 100%;
+  gap: 0;
+  border: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--product-hero-ink) 16%, transparent);
+  padding: 1rem 0;
+  background: transparent;
+  color: color-mix(in srgb, var(--product-hero-ink) 55%, transparent);
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.25s ease, padding-left 0.25s ease;
+}
+
+.product-hero__item strong { font-size: clamp(1.2rem, 2vw, 1.65rem); font-weight: 500; letter-spacing: -0.04em; }
+.product-hero__item span { color: currentColor; font-size: 0.63rem; }
+.product-hero__item.is-active {
+  padding-left: 1rem;
+  color: var(--product-hero-ink);
+  box-shadow: inset 3px 0 var(--product-hero-tint);
+}
+.product-hero__item:focus-visible { outline: 1px solid var(--product-hero-ink); outline-offset: -1px; }
+
+@media (min-width: 900px) {
+  .product-hero { grid-template-columns: minmax(0, 57.5%) minmax(24rem, 1fr); height: 100svh; }
+  .product-hero__visual { min-height: 0; }
+  .product-hero__categories { display: flex; flex-direction: column; justify-content: flex-end; padding: 4rem clamp(2.5rem, 5vw, 6.5rem); }
+  .product-hero__copy { right: clamp(2.5rem, 4vw, 5rem); bottom: clamp(2.5rem, 6vh, 5rem); left: clamp(2.5rem, 4vw, 5rem); }
+  .product-hero__item { padding-block: clamp(1rem, 1.65vh, 1.6rem); }
+}
+
+@media (prefers-reduced-motion: reduce) { .product-hero__image, .product-hero__item { animation: none; transition: none; } }
+
+@keyframes product-hero-image-in { from { opacity: 0.6; transform: scale(1.02); } to { opacity: 1; transform: scale(1); } }
+
+.product-range {
+  --pr-maroon-900: #3a1017;
+  --pr-maroon-950: #2b0b10;
+  --pr-ember: #e0794a;
+  --pr-border: rgba(255, 255, 255, 0.12);
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 34rem;
+  /* .site-header is position:fixed and overlays document flow — clear it
+     with top padding rather than reducing the section's own height, so
+     the fixed-height desktop viewport-fit below still adds up cleanly. */
+  padding-top: var(--header-height, 5rem);
+  background: var(--pr-maroon-900);
+  color: #fff;
+  font-family: var(--font-sans);
+}
+
+@media (min-width: 1024px) {
+  .product-range {
+    height: 100dvh;
+  }
+}
+
+.product-range__head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem 1.5rem 1rem;
+  border-bottom: 1px solid var(--pr-border);
+}
+
+@media (min-width: 640px) {
+  .product-range__head {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 1.5rem 3rem 1rem;
+  }
+}
+
+.product-range__eyebrow {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 500;
+color: rgba(255, 255, 255, 0.45);
+}
+
+.product-range__title {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.product-range__meta {
+  margin: 0;
+  padding-bottom: 0.25rem;
+  font-size: 0.68rem;
+  font-weight: 500;
+color: rgba(255, 255, 255, 0.45);
+}
+
+.product-range__grid {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  margin: 1.5rem 1.5rem 2rem;
+  border: 1px solid var(--pr-border);
+}
+
+@media (min-width: 640px) {
+  .product-range__grid {
+    margin: 1.5rem 3rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-range__grid {
+    flex-direction: row;
+  }
+}
+
+.product-range__tile {
+  position: relative;
+  display: block;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 11rem;
+  overflow: hidden;
+  border: 0;
+  border-bottom: 1px solid var(--pr-border);
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: flex-grow 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.product-range__tile:last-child {
+  border-bottom: 0;
+}
+
+@media (min-width: 1024px) {
+  .product-range__tile {
+    min-height: 0;
+    border-bottom: 0;
+    border-right: 1px solid var(--pr-border);
+  }
+
+  .product-range__tile:last-child {
+    border-right: 0;
+  }
+}
+
+.product-range__tile:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: -2px;
+}
+
+.product-range__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.55) brightness(0.85);
+  transform: scale(1);
+  transition: filter 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.product-range__tile.is-active .product-range__photo {
+  filter: saturate(0.75) brightness(1);
+  transform: scale(1.035);
+}
+
+.product-range__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(43, 11, 16, 0.1) 0%,
+    rgba(43, 11, 16, 0.6) 45%,
+    rgba(43, 11, 16, 0.95) 100%
+  );
+}
+
+.product-range__accent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  height: 3px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: var(--pr-ember);
+  transition: transform 0.5s ease;
+}
+
+.product-range__tile.is-active .product-range__accent {
+  transform: scaleX(1);
+}
+
+.product-range__index {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  z-index: 1;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.product-range__body {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  padding: 1.25rem 1.25rem 1.5rem;
+}
+
+.product-range__title-tile {
+  margin: 0;
+  overflow: hidden;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  transition: color 0.5s ease, font-size 0.5s ease;
+}
+
+.product-range__tile.is-active .product-range__title-tile {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.product-range__reveal {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.4s ease, opacity 0.3s ease;
+}
+
+.product-range__tile.is-active .product-range__reveal {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.product-range__reveal-inner {
+  overflow: hidden;
+}
+
+.product-range__desc {
+  max-width: 17.5rem;
+  margin: 0.75rem 0 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.product-range__cta {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid var(--pr-ember);
+  font-size: 0.6rem;
+  font-weight: 500;
+color: var(--pr-ember);
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.product-range__tile:hover .product-range__cta {
+  background: var(--pr-ember);
+  color: var(--pr-maroon-950);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-range__tile,
+  .product-range__photo,
+  .product-range__accent,
+  .product-range__title-tile,
+  .product-range__reveal,
+  .product-range__cta {
+    transition: none;
+  }
+}

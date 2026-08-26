@@ -1,0 +1,85 @@
+.page.rd .page-hero {
+  position: relative;
+  width: 100vw;
+  height: 100%;
+  color: var(--base-100);
+  padding-top: 35svh;
+  padding-bottom: 6svh;
+}
+
+.page.rd .page-hero .container {
+  display: flex;
+  gap: 2rem;
+}
+
+.page.rd .page-hero-col:nth-child(1) {
+  flex: 2;
+  color: var(--base-400);
+}
+
+.page.rd .page-hero-col:nth-child(1) p {
+  width: 80%;
+}
+
+.page.rd .page-hero-col:nth-child(2) {
+  flex: 3;
+}
+
+.page.rd .rd-facts {
+  padding-bottom: 6svh;
+}
+
+.page.rd .rd-facts-items {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.page.rd .rd-facts-items .fact {
+  flex: 1;
+  min-width: 8rem;
+  color: var(--base-100);
+}
+
+.page.rd .rd-facts-items .fact p {
+  color: var(--base-350);
+}
+
+.page.rd .rd-focus {
+  padding-bottom: 6svh;
+}
+
+.page.rd .rd-focus-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.page.rd .rd-focus-card {
+  border-radius: 1rem;
+  background: var(--base-450);
+  padding: 2rem;
+  color: var(--base-100);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.page.rd .rd-focus-card p {
+  color: var(--base-350);
+}
+
+@media (max-width: 1000px) {
+  .page.rd .page-hero .container {
+    flex-direction: column;
+  }
+
+  .page.rd .page-hero-col:nth-child(1) p {
+    width: 100%;
+  }
+
+  .page.rd .rd-focus-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,28 @@
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  height: 100svh;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.page-transition__grid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.page-transition__grid span {
+  /* The transition follows the page surface: warm cream in the light theme. */
+  background: var(--base-500);
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition { display: none; }
+}

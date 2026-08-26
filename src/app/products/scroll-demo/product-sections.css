@@ -1,0 +1,302 @@
+.products-page .product-details {
+  background: #f5f3ee;
+}
+
+.products-page .product-details__head {
+  width: min(88rem, 100%);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 2.5rem)
+    clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+.products-page .product-details__label {
+  margin: 0 0 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+color: rgba(26, 10, 14, 0.45);
+}
+
+.products-page .product-details__title {
+  margin: 0;
+  font-family: var(--font-display, var(--font-sans));
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+.products-page .product-design {
+  background: #fff;
+  padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 4vw, 3rem) clamp(5rem, 12vw, 9rem);
+}
+
+.products-page .product-design__inner {
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+.products-page .product-design__top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: start;
+  margin-bottom: clamp(2.5rem, 6vw, 5rem);
+}
+
+@media (min-width: 900px) {
+  .products-page .product-design__top {
+    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+    gap: clamp(3rem, 6vw, 6rem);
+  }
+}
+
+.products-page .product-design__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.products-page .product-design__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.products-page .design-feature {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(1.25rem, 2.5vw, 2.25rem);
+  align-items: start;
+}
+
+.products-page .design-feature__index {
+  font-family: "SFMono-Regular", "SF Mono", "JetBrains Mono", "Menlo", "Consolas", monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.06em;
+  color: rgba(26, 10, 14, 0.4);
+  font-variant-numeric: tabular-nums;
+}
+
+.products-page .design-feature__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.products-page .design-feature__copy h3 {
+  font-family: var(--font-sans);
+  font-size: clamp(1.1rem, 1.7vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.products-page .design-feature__copy p {
+  font-size: clamp(0.82rem, 1.15vw, 0.92rem);
+  line-height: 1.55;
+  color: rgba(26, 10, 14, 0.55);
+  max-width: 30rem;
+}
+
+.products-page .product-design__gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+}
+
+.products-page .design-tile {
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #ece7de;
+}
+
+.products-page .design-tile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.products-page .design-tile:hover img {
+  transform: scale(1.04);
+}
+
+@media (max-width: 640px) {
+  .products-page .product-design__gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .products-page .design-tile {
+    aspect-ratio: 16 / 10;
+  }
+}
+/* ── Grout ripple slider ── */
+.products-page .grout-section {
+  margin: 0;
+}
+
+.products-page .grout-slider {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  background: #1a0a0e;
+  user-select: none;
+}
+
+.products-page .grout-slider canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.products-page .grout-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  color: #fff;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(26, 10, 14, 0.72) 0%,
+    rgba(26, 10, 14, 0.06) 42%,
+    rgba(26, 10, 14, 0.28) 100%
+  );
+}
+
+.products-page .grout-overlay__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.products-page .grout-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+color: rgba(255, 255, 255, 0.72);
+}
+
+/* progress dots */
+.products-page .grout-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.products-page .grout-dot {
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.products-page .grout-dot.is-active {
+  background: #fff;
+  transform: scale(1.35);
+}
+
+.products-page .grout-counter {
+  font-family: var(--font-mono, "Geist Mono", monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.products-page .grout-overlay__bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.products-page .grout-title-area {
+  flex: 1;
+  min-width: 0;
+}
+
+.products-page .grout-title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 9vw, 7rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.products-page .grout-right {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.25rem;
+  max-width: min(100%, 18rem);
+  text-align: right;
+}
+
+.products-page .grout-desc {
+  margin: 0;
+  font-size: clamp(0.82rem, 1.2vw, 0.92rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* scroll hint */
+.products-page .grout-scroll-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+color: rgba(255, 255, 255, 0.55);
+}
+
+.products-page .grout-scroll-hint svg {
+  width: 1rem;
+  height: 1rem;
+  animation: grout-bob 1.6s ease-in-out infinite;
+}
+
+@keyframes grout-bob {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(4px); }
+}
+
+/* word-mask animation helpers */
+.products-page .grout-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.products-page .grout-inner {
+  display: inline-block;
+}
+
+@media (max-width: 720px) {
+  .products-page .grout-overlay__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .products-page .grout-right {
+    align-items: flex-start;
+    text-align: left;
+    max-width: 100%;
+  }
+}
