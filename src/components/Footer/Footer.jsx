@@ -45,15 +45,21 @@ const Footer = () => {
         <div className="container footer-socials">
           <div className="footer-meta-col">
             <div className="footer-socials-wrapper" ref={socialIconsRef}>
-              <div className="icon">
-                <RiLinkedinBoxLine />
-              </div>
-              <div className="icon">
-                <RiInstagramLine />
-              </div>
-              <div className="icon">
-                <RiYoutubeLine />
-              </div>
+              <a href="https://www.linkedin.com/company/bondure/" target="_blank" rel="noopener noreferrer">
+                <div className="icon">
+                  <RiLinkedinBoxLine />
+                </div>
+              </a>
+              <a href="https://www.instagram.com/bondure___?igsi=MXNnbnZ1d2RtN3M5cw==" target="_blank" rel="noopener noreferrer">
+                <div className="icon">
+                  <RiInstagramLine />
+                </div>
+              </a>
+              <a href="https://www.youtube.com/@BONDURE123" target="_blank" rel="noopener noreferrer">
+                <div className="icon">
+                  <RiYoutubeLine />
+                </div>
+              </a>
             </div>
           </div>
         </div>

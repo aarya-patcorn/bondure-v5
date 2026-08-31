@@ -68,9 +68,10 @@
 .history-entry {
   position: relative;
   display: grid;
+  align-content: start;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: auto auto minmax(5rem, auto) auto;
-  column-gap: clamp(4rem, 10vw, 12rem);
+  column-gap: clamp(5rem, 10vw, 12rem);
   min-height: clamp(48rem, 72vw, 76rem);
   padding-bottom: clamp(8rem, 14vw, 16rem);
 }
@@ -193,7 +194,7 @@
 .history-entry__heading {
   position: relative;
   z-index: 3;
-  align-self: end;
+  align-self: start;
 }
 
 .history-entry__heading h2 {
@@ -233,7 +234,7 @@
 
 .history-entry--left .history-entry__period {
   grid-column: 1;
-  grid-row: 1;
+  grid-row: 2;
   justify-self: end;
   padding-right: clamp(2rem, 5vw, 5rem);
   text-align: right;
@@ -241,68 +242,50 @@
 
 .history-entry--left .history-entry__image {
   grid-column: 2;
-  grid-row: 2 / span 2;
-  margin-top: clamp(3rem, 7vw, 7rem);
+  grid-row: 3 / span 2;
+  margin-top: clamp(1.5rem, 3vw, 3rem);
   margin-left: clamp(-2rem, -4vw, -5rem);
 }
 
 .history-entry--left .history-entry__heading {
   grid-column: 1;
-  grid-row: 2;
+  grid-row: 3;
   justify-self: end;
-  padding-top: clamp(6rem, 13vw, 13rem);
+  padding-top: clamp(2rem, 5vw, 5rem);
   text-align: right;
 }
 
 .history-entry--left .history-entry__card {
   grid-column: 1;
-  grid-row: 3;
+  grid-row: 4;
   justify-self: end;
   margin-top: clamp(2rem, 4vw, 4rem);
   margin-right: clamp(-2rem, -5vw, -6rem);
 }
 
-.history-entry:first-child.history-entry--left .history-entry__period {
-  grid-row: 2;
-}
-
-.history-entry:first-child.history-entry--left .history-entry__image {
-  grid-row: 3 / span 2;
-  margin-top: clamp(1.5rem, 3vw, 3rem);
-}
-
-.history-entry:first-child.history-entry--left .history-entry__heading {
-  grid-row: 3;
-  padding-top: clamp(2rem, 5vw, 5rem);
-}
-
-.history-entry:first-child.history-entry--left .history-entry__card {
-  grid-row: 4;
-}
-
 .history-entry--right .history-entry__period {
   grid-column: 2;
-  grid-row: 1;
+  grid-row: 2;
   padding-left: clamp(2rem, 5vw, 5rem);
 }
 
 .history-entry--right .history-entry__image {
   grid-column: 1;
-  grid-row: 2 / span 2;
+  grid-row: 3 / span 2;
   justify-self: end;
-  margin-top: clamp(3rem, 7vw, 7rem);
+  margin-top: clamp(1.5rem, 3vw, 3rem);
   margin-right: clamp(-2rem, -4vw, -5rem);
 }
 
 .history-entry--right .history-entry__heading {
   grid-column: 2;
-  grid-row: 2;
-  padding-top: clamp(6rem, 13vw, 13rem);
+  grid-row: 3;
+  padding-top: clamp(2rem, 5vw, 5rem);
 }
 
 .history-entry--right .history-entry__card {
   grid-column: 2;
-  grid-row: 3;
+  grid-row: 4;
   margin-top: clamp(2rem, 4vw, 4rem);
   margin-left: clamp(-2rem, -5vw, -6rem);
 }
@@ -408,7 +391,7 @@
     grid-column: 2;
     grid-row: 1;
     justify-self: start;
-    padding: 0 0 2rem;
+    padding: 0 0 1rem;
     font-size: clamp(3.25rem, 15vw, 5.5rem);
     text-align: left;
   }

@@ -153,7 +153,7 @@ export default function ServicesPage() {
         <CTAWindow
           video="/home-media/AACBLOCKDEMO.mp4"
           ctaLabel={content.cta}
-          ctaHref="https://www.youtube.com"
+          ctaHref="https://www.youtube.com/watch?v=zPkCc4Fjcag"
           showOverlay={false}
         />
       </main>
