@@ -26,7 +26,7 @@ const copy = {
       {
         title: "Materials research",
         description: "Formulation and chemistry.",
-        image: "/home-media/materials-research-lab.webp",
+        image: "/home-media/materials-research-lab.png",
         alt: "Bonding material powder sample prepared for laboratory analysis",
       },
       {
@@ -38,7 +38,7 @@ const copy = {
       {
         title: "Independent verification",
         description: "Repeatable external testing.",
-        image: "/home-media/independent-verification-site.webp",
+        image: "/home-media/independent-verification-site.png",
         alt: "Technical team inspecting bonded block samples on a construction site",
       },
     ],

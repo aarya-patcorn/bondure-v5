@@ -1,6 +1,6 @@
 :root {
-  --site-chrome-top-height: 4.25rem;
-  --site-chrome-nav-height: 3rem;
+  --site-chrome-top-height: 3.5rem;
+  --site-chrome-nav-height: 2.5rem;
   --site-chrome-height: calc(var(--site-chrome-top-height) + var(--site-chrome-nav-height));
 }
 
@@ -327,7 +327,7 @@
   align-items: center;
   gap: 1rem;
   min-height: var(--site-chrome-top-height);
-  padding: 0.85rem clamp(1.25rem, 4vw, 3rem) 0.65rem;
+  padding: 0.55rem clamp(1.25rem, 4vw, 3rem) 0.4rem;
   background: #fff;
 }
 
@@ -397,7 +397,7 @@
 
 .top-bar-logo-text {
   font-family: var(--font-crimson-pro), serif;
-  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
   font-weight: 700;
   letter-spacing: 0.06em;
   line-height: 1;
@@ -414,7 +414,7 @@
   align-items: center;
   justify-content: center;
   min-height: var(--site-chrome-nav-height);
-  padding: 0.55rem clamp(1.25rem, 4vw, 3rem) 0.85rem;
+  padding: 0.35rem clamp(1.25rem, 4vw, 3rem) 0.55rem;
   background: #fff;
 }
 
@@ -488,8 +488,8 @@ html[data-theme="dark"] .top-bar-nav__links a {
 
 @media (max-width: 1000px) {
   :root {
-    --site-chrome-top-height: 3.85rem;
-    --site-chrome-nav-height: 2.85rem;
+    --site-chrome-top-height: 3.35rem;
+    --site-chrome-nav-height: 2.4rem;
   }
 
   .top-bar,

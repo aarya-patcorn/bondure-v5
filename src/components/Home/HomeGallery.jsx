@@ -17,7 +17,7 @@ const galleryMedia = [
   },
   {
     id: "floor-screed",
-    src: "/home-media/gallery-floor-screed.webp",
+    src: "/home-media/site-image-6.webp",
     alt: {
       en: "Worker smoothing a floor coating in a sunlit courtyard",
       de: "Arbeiter glättet eine Bodenbeschichtung in einem sonnigen Innenhof",
@@ -26,7 +26,7 @@ const galleryMedia = [
   },
   {
     id: "excavator",
-    src: "/home-media/h40-video-background-cropped.mp4",
+    src: "/home-media/luss-test.mp4",
     poster: "/optimized/home/gallery-material-inspection.webp",
     alt: {
       en: "Excavator loading earth into a dump truck at a construction site",
@@ -35,7 +35,7 @@ const galleryMedia = [
   },
   {
     id: "bondure-tile-installation",
-    src: "/home-media/gallery-tile-installation.webp",
+    src: "/home-media/site-image-9.webp",
     alt: {
       en: "Bondure technician installing tiles on site with a mountain view through the window",
       de: "Bondure Techniker verlegt Fliesen auf der Baustelle mit Bergblick durch das Fenster",
@@ -44,7 +44,7 @@ const galleryMedia = [
   },
   {
     id: "tile-adhesive",
-    src: "/home-media/planogel-video-background-cropped%20(1).mp4",
+    src: "/home-media/water-proofing.mp4",
     poster: "/optimized/home/gallery-tile-installation.webp",
     alt: {
       en: "Tile adhesive being applied with a notched trowel",
@@ -53,7 +53,7 @@ const galleryMedia = [
   },
   {
     id: "wall-plaster",
-    src: "/spotlight/services3AAC.webp",
+    src: "/home-media/site-image-5.webp",
     alt: {
       en: "Wall plaster application on site",
       de: "Auftragen von Wandputz auf der Baustelle",
@@ -62,7 +62,7 @@ const galleryMedia = [
   },
   {
     id: "aac-blocks",
-    src: "/home-media/AACBLOCKDEMO.mp4",
+    src: "/home-media/aac-block.mp4",
     poster: "/optimized/home/gallery-aac-joining.webp",
     alt: {
       en: "AAC block joining mortar applied on site",
@@ -71,7 +71,7 @@ const galleryMedia = [
   },
   {
     id: "precision-tile",
-    src: "/spotlight/spotlight-img-2.webp",
+    src: "/home-media/site-image-7.webp",
     alt: {
       en: "Large-format tile installation with a notched trowel",
       de: "Verlegung großformatiger Fliesen mit einer Zahnkelle",

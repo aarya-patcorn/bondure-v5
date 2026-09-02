@@ -99,7 +99,7 @@ export default function HomeStaticSections() {
             <h2 id="solutions-title"><strong>{copy.solutionsLead}</strong> {copy.solutionsTail}</h2>
           </div>
 
-          <div className="home-solutions__grid">
+          {/* <div className="home-solutions__grid">
             {solutionIcons.map((Icon, index) => {
               const label = copy.solutions[index];
               return (
@@ -109,7 +109,7 @@ export default function HomeStaticSections() {
               </article>
               );
             })}
-          </div>
+          </div> */}
         </div>
         <CircularGalleryDemo />
       </section>

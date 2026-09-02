@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 
 const HERO_VIDEO = {
-  src: "/home-media/h40-video-background-cropped.mp4",
-  poster: "/optimized/home/hero-poster.webp",
+  src: "/home-media/home_page_intro.mp4",
+  // poster: "/optimized/home/hero-poster.webp",
 };
 
 export default function HomeHeroBackground() {
@@ -32,24 +32,23 @@ export default function HomeHeroBackground() {
 
   return (
     <div className="home-hero__background">
-      <img
+      {/* <img
         className="home-hero__video-poster"
         src={HERO_VIDEO.poster}
         alt=""
         decoding="async"
         fetchPriority="high"
         loading="eager"
-      />
+      /> */}
       {motionEnabled && loadVideo ? (
         <video
           className="home-hero__video"
           src={HERO_VIDEO.src}
-          poster={HERO_VIDEO.poster}
           autoPlay
           muted
           loop
           playsInline
-          preload="none"
+          preload="auto"
         />
       ) : null}
       <div className="home-hero__video-scrim" aria-hidden="true" />
