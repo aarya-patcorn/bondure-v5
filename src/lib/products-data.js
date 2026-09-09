@@ -56,7 +56,7 @@ export function getProductPatchAccent(product) {
 
 export const CATEGORY_SPECS = {
   "aac-joining": {
-    primary: "120 ft²",
+    primary: "160 - 180 ft²",
     primaryLabel: "Coverage per bag",
     primaryCopy:
       "Per 40 kg bag at a 3 mm joint — designed for fast, precise AAC masonry.",
@@ -98,7 +98,7 @@ export const CATEGORY_SPECS = {
     primary: "25 ft²",
     primaryLabel: "Coverage per bag",
     primaryCopy:
-      "Per 20 kg bag at a 10 mm layer on a prepared floor substrate.",
+      "Coverage may vary depending on surface condition, compaction, applicator skill and application thickness.",
     secondary: "45 min",
     secondaryLabel: "Working time",
     tertiary: "24 hr",
@@ -108,10 +108,10 @@ export const CATEGORY_SPECS = {
       "Concrete slabs, cement screeds, internal floors, and covered external substrates.",
   },
   plaster: {
-    primary: "18 ft²",
+    primary: "22 - 24 ft²",
     primaryLabel: "Coverage per bag",
     primaryCopy:
-      "Per 25 kg bag at a 12 mm coat, subject to substrate texture and preparation.",
+      "Per 40 kg bag at a 12 mm coat, subject to substrate texture and preparation.",
     secondary: "30 min",
     secondaryLabel: "Working time",
     tertiary: "90 min",
@@ -332,68 +332,44 @@ export const PRODUCTS = [
     meta: "Warranty 5 Year, 10 Year · Green Pro, IS 2250",
     category: "aac-joining",
     collectionCategory: "AAC Jointing Mortar",
-    image: "/products/bondure-base-b585-bag.webp",
+    image: "/products/aac-jointing-mortar.webp",
     imageAlt: "Bondure AAC block jointing mortar bag",
     line: "aac-joining",
   },
   {
-    slug: "bondure-aac-joint-pro",
-    title: "Bondure AAC Joint Pro",
-    description:
-      "Engineered for AAC block chemistry — smooth 2–3 mm joints with bond strength exceeding IS 2250 masonry requirements.",
-    meta: "Warranty 10 Year · Green Pro",
-    category: "aac-joining",
-    collectionCategory: "AAC Jointing Mortar",
-    image: "/products/bondure-base-b555-bag.webp",
-    imageAlt: "Bondure AAC Joint Pro mortar bag",
-    line: "aac-joining",
-  },
-  {
-    slug: "bondure-thinbed-aac",
-    title: "Bondure ThinBed AAC",
-    description:
-      "Self-curing thin-bed formulation for precision coursing — no water curing required after application.",
-    meta: "Warranty 1 Year, 5 Year · IS 2250",
-    category: "aac-joining",
-    collectionCategory: "AAC Jointing Mortar",
-    image: "/products/bondure-base-b565-bag.webp",
-    imageAlt: "Bondure ThinBed AAC mortar bag",
-    line: "aac-joining",
-  },
-  {
-    slug: "bondure-align-adhesive-b-s55",
-    title: "Bondure Align Adhesive B-S55",
+    slug: "bondure-adhesive-b585",
+    title: "Bondure Adhesive B-585",
     description:
       "Premium polymer-modified tile adhesive for vitrified, ceramic, and natural stone — high grab with low shrinkage.",
     meta: "Warranty 5 Year, 10 Year · Green Pro, ISO 13007",
     category: "tile-adhesive",
     collectionCategory: "Tile Adhesive",
     image: "/products/bondure-base-b585-bag.webp",
-    imageAlt: "Bondure Align Adhesive B-S55 bag",
+    imageAlt: "Bondure Adhesive B-585 bag",
     line: "tile-adhesive",
   },
   {
-    slug: "bondure-ultratile-adhesive",
-    title: "Bondure UltraTile Adhesive",
+    slug: "bondure-adhesive-b555",
+    title: "Bondure Adhesive B-555",
     description:
       "Water-resistant fix for bathrooms, kitchens, and external facades — tested for Indian temperature cycles.",
     meta: "Warranty 10 Year · Green Pro",
     category: "tile-adhesive",
     collectionCategory: "Tile Adhesive",
     image: "/products/bondure-base-b555-bag.webp",
-    imageAlt: "Bondure UltraTile Adhesive bag",
+    imageAlt: "Bondure Adhesive B-555 bag",
     line: "tile-adhesive",
   },
   {
-    slug: "bondure-tilegrip-pro",
-    title: "Bondure TileGrip Pro",
+    slug: "bondure-adhesive-b565",
+    title: "Bondure Adhesive B-565",
     description:
       "Non-slip formulation for large-format vitrified tiles on floors and vertical stone cladding applications.",
     meta: "Warranty 5 Year · ISO 13007",
     category: "tile-adhesive",
     collectionCategory: "Tile Adhesive",
     image: "/products/bondure-base-b565-bag.webp",
-    imageAlt: "Bondure TileGrip Pro adhesive bag",
+    imageAlt: "Bondure Adhesive B-565 bag",
     line: "tile-adhesive",
   },
   {
@@ -421,50 +397,27 @@ export const PRODUCTS = [
     line: "grout",
   },
   {
-    slug: "bondure-levelbed-screed",
-    title: "Bondure LevelBed Screed",
+    slug: "bondure-screed",
+    title: "Bondure Screed",
     description:
       "Cementitious floor screed for leveling beds before tile fixing — 10–40 mm thickness with controlled shrinkage.",
     meta: "Warranty 5 Year, 10 Year · IS 1199",
     category: "floor-screed",
     collectionCategory: "Floor Screed",
-    image: "/products/bondure-base-b565-bag.webp",
-    imageAlt: "Bondure LevelBed Screed bag",
+    image: "/products/screed.webp",
+    imageAlt: "Bondure Screed bag",
     line: "floor-screed",
   },
   {
-    slug: "bondure-rapidlevel-screed",
-    title: "Bondure RapidLevel Screed",
-    description:
-      "Faster-set screed for thin beds (5–20 mm) on indoor and covered external floors.",
-    meta: "Warranty 5 Year · IS 1199",
-    category: "floor-screed",
-    collectionCategory: "Floor Screed",
-    image: "/products/bondure-base-b585-bag.webp",
-    imageAlt: "Bondure RapidLevel Screed bag",
-    line: "floor-screed",
-  },
-  {
-    slug: "bondure-wallfinish-plaster",
-    title: "Bondure WallFinish Plaster",
+    slug: "bondure-wallstark-plaster",
+    title: "Bondure Wall Stark Plaster",
     description:
       "Interior wall plaster for brick, concrete, and AAC — smooth finish with reliable coverage at 12 mm coats.",
     meta: "Warranty 5 Year, 10 Year · IS 1661",
     category: "plaster",
     collectionCategory: "Plaster",
-    image: "/products/bondure-base-b555-bag.webp",
-    imageAlt: "Bondure WallFinish Plaster bag",
-    line: "plaster",
-  },
-  {
-    slug: "bondure-exterender-plaster",
-    title: "Bondure ExteRender Plaster",
-    description: "Weather-resistant exterior render for brick and concrete facades.",
-    meta: "Warranty 10 Year · IS 1661",
-    category: "plaster",
-    collectionCategory: "Plaster",
-    image: "/products/bondure-base-b565-bag.webp",
-    imageAlt: "Bondure ExteRender Plaster bag",
+    image: "/products/wall-stark.webp",
+    imageAlt: "Bondure Wall Stark Plaster bag",
     line: "plaster",
   },
   {
@@ -550,11 +503,11 @@ const DEMO_VIDEO = {
 };
 
 const SECONDARY_VIEW_BY_CATEGORY = {
-  "aac-joining": "/home-media/aac-blocks.webp",
+  "aac-joining": "/products/aac-blocks.webp",
   "tile-adhesive": "/spotlight/tile-adhesive-application.png",
-  grout: "/home-media/adhesive-work-2.webp",
-  "floor-screed": "/home-media/materials-research-lab.webp",
-  plaster: "/home-media/construction-mortar-application.png",
+  "grout": "/home-media/adhesive-work-2.webp",
+  "floor-screed": "/products/screed-full.webp",
+  "plaster": "/products/wall-stark-1.webp",
   "tile-cleaner": "/home-media/site-testing.webp",
 };
 
@@ -644,9 +597,9 @@ export function getAllProductSlugs() {
 const DE_CATEGORY_LABELS = {
   "tile-adhesive": "Fliesenkleber",
   "aac-joining": "Porenbeton-Fugenmörtel",
-  grout: "Fugenmörtel",
+  "grout": "Fugenmörtel",
   "floor-screed": "Bodenestrich",
-  plaster: "Putz",
+  "plaster": "Putz",
   "tile-cleaner": "Fliesenreiniger",
 };
 
@@ -663,17 +616,17 @@ const DE_PRODUCT_COPY = {
     description: "Selbsthärtender Dünnbettmörtel für präzise Lagerfugen; nach der Verarbeitung ist keine Wassernachbehandlung erforderlich.",
     imageAlt: "Sack Bondure ThinBed AAC Mörtel",
   },
-  "bondure-align-adhesive-b-s55": {
+  "bondure-adhesive-b585": {
     description: "Hochwertiger polymermodifizierter Fliesenkleber für Feinsteinzeug, Keramik und Naturstein mit hoher Anfangshaftung und geringer Schwindung.",
-    imageAlt: "Sack Bondure Align Adhesive B-S55",
+    imageAlt: "Sack Bondure Adhesive B-585",
   },
-  "bondure-ultratile-adhesive": {
+  "bondure-adhesive-b555": {
     description: "Wasserbeständiger Kleber für Bäder, Küchen und Außenfassaden, geprüft für indische Temperaturzyklen.",
-    imageAlt: "Sack Bondure UltraTile Adhesive",
+    imageAlt: "Sack Bondure Adhesive B-555",
   },
-  "bondure-tilegrip-pro": {
+  "bondure-adhesive-b565": {
     description: "Standfeste Rezeptur für großformatiges Feinsteinzeug auf Böden und vertikale Natursteinbekleidungen.",
-    imageAlt: "Sack Bondure TileGrip Pro Fliesenkleber",
+    imageAlt: "Sack Bondure Adhesive B-565 Fliesenkleber",
   },
   "bondure-aquaguard-grout": {
     description: "Fleckenbeständiger, flexibler Fugenmörtel für Nassbereiche; die mikroversiegelte Oberfläche weist Öle und Reinigungsmittel ab.",
@@ -683,17 +636,13 @@ const DE_PRODUCT_COPY = {
     description: "Elastomerer Fugenmörtel für Fassaden und stark bewegungsbeanspruchte Fugen mit UV-beständiger Farbe.",
     imageAlt: "Gebinde Bondure FlexJoint Grout",
   },
-  "bondure-levelbed-screed": {
+  "bondure-screed": {
     description: "Zementärer Bodenestrich für Ausgleichsschichten vor der Fliesenverlegung, für 10–40 mm Dicke und mit kontrollierter Schwindung.",
-    imageAlt: "Sack Bondure LevelBed Screed",
+    imageAlt: "Sack Bondure Screed",
   },
-  "bondure-rapidlevel-screed": {
-    description: "Schnell abbindender Estrich für dünne Schichten von 5–20 mm auf Innenböden und überdachten Außenflächen.",
-    imageAlt: "Sack Bondure RapidLevel Screed",
-  },
-  "bondure-wallfinish-plaster": {
+  "bondure-wallstark-plaster": {
     description: "Innenwandputz für Ziegel, Beton und Porenbeton mit glatter Oberfläche und verlässlicher Ergiebigkeit bei 12-mm-Schichten.",
-    imageAlt: "Sack Bondure WallFinish Plaster",
+    imageAlt: "Sack Bondure Wall Stark Plaster",
   },
   "bondure-exterender-plaster": {
     description: "Witterungsbeständiger Außenputz für Ziegel- und Betonfassaden.",
