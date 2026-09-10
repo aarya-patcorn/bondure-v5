@@ -337,6 +337,18 @@ export const PRODUCTS = [
     line: "tile-adhesive",
   },
   {
+    slug: "bondure-jointflex-grout",
+    title: "Bondure Joint Flex Grout",
+    description:
+      "Elastomeric grout for facades and high-movement joints — colour-stable in UV exposure.",
+    meta: "Warranty 1 Year, 5 Year · HPD",
+    category: "grout",
+    collectionCategory: "Grout",
+    image: "/products/joint-flex.webp",
+    imageAlt: "Bondure Joint Flex Grout pack",
+    line: "grout",
+  },
+  {
     slug: "bondure-screed",
     title: "Bondure Screed",
     description:
@@ -361,27 +373,15 @@ export const PRODUCTS = [
     line: "plaster",
   },
   {
-    slug: "bondure-cleanshine",
-    title: "Bondure CleanShine",
+    slug: "bondure-tileshine",
+    title: "Bondure Tile Shine",
     description:
       "Concentrate cleaner for ceramic and vitrified tiles — removes cement haze after installation.",
-    meta: "Warranty 1 Year · Pack 5 L",
+    meta: "Warranty 1 Year · Pack 500 ML",
     category: "tile-cleaner",
     collectionCategory: "Tile Cleaner",
-    image: "/products/bondure-base-b585-bag.webp",
-    imageAlt: "Bondure CleanShine cleaner pack",
-    line: "tile-cleaner",
-  },
-  {
-    slug: "bondure-stonecare-cleaner",
-    title: "Bondure StoneCare Cleaner",
-    description:
-      "Gentle cleaner for natural stone and marble — suited to efflorescence and routine maintenance.",
-    meta: "Warranty 1 Year · Pack 5 L",
-    category: "tile-cleaner",
-    collectionCategory: "Tile Cleaner",
-    image: "/products/bondure-base-b555-bag.webp",
-    imageAlt: "Bondure StoneCare Cleaner pack",
+    image: "/products/tile-shine.webp",
+    imageAlt: "Bondure Tile Shine cleaner pack",
     line: "tile-cleaner",
   },
 ];
@@ -444,10 +444,11 @@ const DEMO_VIDEO = {
 
 const SECONDARY_VIEW_BY_CATEGORY = {
   "aac-joining": "/products/aac-blocks.webp",
-  "tile-adhesive": "/spotlight/tile-adhesive-application.png",
+  "tile-adhesive": "",
+  "grout": "",
   "floor-screed": "/products/screed-full.webp",
   "plaster": "/products/wall-stark-1.webp",
-  "tile-cleaner": "/home-media/site-testing.webp",
+  "tile-cleaner": "",
 };
 
 function normalizeView(view, fallback, index) {
@@ -481,9 +482,9 @@ export function getProductViews(product) {
   }
 
   const secondarySrc =
-    SECONDARY_VIEW_BY_CATEGORY[product.category] || "/home-media/site-testing.webp";
+    SECONDARY_VIEW_BY_CATEGORY[product.category] || null;
 
-  return [
+  const views = [
     {
       type: "image",
       src: base.src,
@@ -491,18 +492,26 @@ export function getProductViews(product) {
       poster: base.src,
       mediaFit: "contain",
     },
-    {
+  ];
+
+  if (product.slug === "bondure-aac-block-jointing-mortar") {
+    views.push({
       ...DEMO_VIDEO,
       mediaFit: "cover",
-    },
-    {
+    });
+  }
+
+  if (secondarySrc) {
+    views.push({
       type: "image",
       src: secondarySrc,
       alt: `${base.alt} — on site`,
       poster: secondarySrc,
       mediaFit: "cover",
-    },
-  ];
+    });
+  }
+
+  return views;
 }
 
 export function getProductBySlug(slug) {
@@ -546,14 +555,6 @@ const DE_PRODUCT_COPY = {
     description: "Für Porenbetonsteine",
     imageAlt: "Sack Bondure Porenbeton-Fugenmörtel",
   },
-  "bondure-aac-joint-pro": {
-    description: "Für die Materialeigenschaften von Porenbeton entwickelt: gleichmäßige 2–3-mm-Fugen mit einer Haftfestigkeit, die die Anforderungen von IS 2250 an Mauermörtel übertrifft.",
-    imageAlt: "Sack Bondure AAC Joint Pro Mörtel",
-  },
-  "bondure-thinbed-aac": {
-    description: "Selbsthärtender Dünnbettmörtel für präzise Lagerfugen; nach der Verarbeitung ist keine Wassernachbehandlung erforderlich.",
-    imageAlt: "Sack Bondure ThinBed AAC Mörtel",
-  },
   "bondure-adhesive-b585": {
     description: "Hochwertiger polymermodifizierter Fliesenkleber für Feinsteinzeug, Keramik und Naturstein mit hoher Anfangshaftung und geringer Schwindung.",
     imageAlt: "Sack Bondure Adhesive B-585",
@@ -566,6 +567,10 @@ const DE_PRODUCT_COPY = {
     description: "Standfeste Rezeptur für großformatiges Feinsteinzeug auf Böden und vertikale Natursteinbekleidungen.",
     imageAlt: "Sack Bondure Adhesive B-565 Fliesenkleber",
   },
+  "bondure-jointflex-grout": {
+    description: "Elastomerer Fugenmörtel für Fassaden und stark bewegungsbeanspruchte Fugen mit UV-beständiger Farbe.",
+    imageAlt: "Gebinde Bondure Joint FLex Grout",
+  },
   "bondure-screed": {
     description: "Zementärer Bodenestrich für Ausgleichsschichten vor der Fliesenverlegung, für 10–40 mm Dicke und mit kontrollierter Schwindung.",
     imageAlt: "Sack Bondure Screed",
@@ -574,18 +579,10 @@ const DE_PRODUCT_COPY = {
     description: "Innenwandputz für Ziegel, Beton und Porenbeton mit glatter Oberfläche und verlässlicher Ergiebigkeit bei 12-mm-Schichten.",
     imageAlt: "Sack Bondure Wall Stark Plaster",
   },
-  "bondure-exterender-plaster": {
-    description: "Witterungsbeständiger Außenputz für Ziegel- und Betonfassaden.",
-    imageAlt: "Sack Bondure ExteRender Plaster",
-  },
-  "bondure-cleanshine": {
+  "bondure-tileshine": {
     description: "Reinigungskonzentrat für Keramik und Feinsteinzeug, das Zementschleier nach der Verlegung entfernt.",
-    imageAlt: "Gebinde Bondure CleanShine Reiniger",
-  },
-  "bondure-stonecare-cleaner": {
-    description: "Schonender Reiniger für Naturstein und Marmor, geeignet für Ausblühungen und die laufende Pflege.",
-    imageAlt: "Gebinde Bondure StoneCare Cleaner",
-  },
+    imageAlt: "Gebinde Bondure Tile Shine Reiniger",
+  }
 };
 
 const DE_CATEGORY_SPECS = {

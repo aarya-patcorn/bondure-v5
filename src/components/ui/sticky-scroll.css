@@ -7,6 +7,10 @@
   width: 100%;
 }
 
+.sticky-scroll__panel > .grid > .col-span-4 {
+  align-content: start;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

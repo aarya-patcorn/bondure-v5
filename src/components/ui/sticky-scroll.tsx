@@ -27,16 +27,6 @@ const stickyTestimonials: StickyTestimonial[] = [
     cutout: true,
   },
   {
-    id: 4,
-    name: 'Emily Carter',
-    role: 'Architect, Berlin',
-    quote:
-      'We used Bondure across a mixed-use tower — AAC joining, screed and tile work. Performance stayed consistent from basement to rooftop.',
-    image: '/clients/sticky-scroll/emily-carter.jpg',
-    alt: 'Emily Carter in a site interview',
-    cutout: true,
-  },
-  {
     id: 5,
     name: 'David Schmidt',
     role: 'Architect, Cologne',
@@ -239,9 +229,9 @@ const StickyScroll = forwardRef<HTMLElement>((props, ref) => {
   const testimonials = locale === 'de'
     ? stickyTestimonials.map((testimonial, index) => ({ ...testimonial, ...stickyTestimonialsDe[index] }))
     : stickyTestimonials;
-  const leftTestimonials = testimonials.slice(0, 4);
-  const centerTestimonials = testimonials.slice(4, 6);
-  const rightTestimonials = testimonials.slice(6, 10);
+  const leftTestimonials = testimonials.slice(0, 3);
+  const centerTestimonials = testimonials.slice(3, 5);
+  const rightTestimonials = testimonials.slice(5, 8);
 
   return (
     <section

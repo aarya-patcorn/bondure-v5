@@ -25,9 +25,11 @@ const MOBILE_NAV_ITEMS = [{ key: "home", href: "/" }, ...NAV_ITEMS];
 
 const PRODUCT_CATEGORIES = Object.entries(NAV_CATEGORY_LABELS);
 const PRODUCT_CATEGORY_IMAGES = {
-  "aac-joining": "/spotlight/02.webp",
-  "floor-screed": "/media/tilefloorproduct.webp",
-  plaster: "/spotlight/services3AAC.webp",
+  "aac-joining": "/products/aac-jointing-mortar.webp",
+  "grout": "/products/joint-flex.webp",
+  "floor-screed": "/products/screed.webp",
+  "plaster": "/products/wall-stark.webp",
+  "tile-cleaner": "/products/tile-shine.webp",
 };
 const TILE_ADHESIVE_IMAGES = [
   "/products/bondure-base-b555-bag.webp",

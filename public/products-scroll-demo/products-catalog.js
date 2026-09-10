@@ -180,6 +180,28 @@
     const filters = catalog.querySelector(".product-catalog__filters");
     if (!filters) return;
 
+    const updateFilterCounts = () => {
+      const cardAttributeByGroup = {
+        category: "categories",
+        warranty: "warranties",
+        country: "countries",
+      };
+
+      filters.querySelectorAll("sl-checkbox[name]").forEach((checkbox) => {
+        const attribute = cardAttributeByGroup[checkbox.name];
+        if (!attribute) return;
+
+        const count = cards.filter((card) =>
+          (card.dataset[attribute] || "")
+            .split(",")
+            .map((value) => value.trim())
+            .includes(checkbox.value),
+        ).length;
+        const countElement = checkbox.parentElement?.querySelector("em");
+        if (countElement) countElement.textContent = `(${count})`;
+      });
+    };
+
     const categoryLabels = {
       "tile-adhesive": "Tile Adhesive",
       "aac-joining": "AAC Jointing Mortar",
@@ -313,6 +335,7 @@
     };
 
     applyFilters();
+    updateFilterCounts();
     window.applyBondureProductsLocale(currentLocale);
   };
 })();

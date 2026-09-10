@@ -175,11 +175,12 @@
                   <sl-button size="small" variant="text" data-clear-group="category">Clear</sl-button>
                 </div>
                 <ul class="product-filter__list">
-                  <li><sl-checkbox name="category" value="tile-adhesive"><span data-i18n="products.catalog.cat.adhesive">Tile adhesives</span></sl-checkbox> <em>(3)</em></li>
-                  <li><sl-checkbox name="category" value="aac-joining"><span data-i18n="products.catalog.cat.mortar">AAC joining solutions</span></sl-checkbox> <em>(3)</em></li>
-                  <li><sl-checkbox name="category" value="floor-screed"><span data-i18n="products.catalog.cat.screed">Floor screed</span></sl-checkbox> <em>(1)</em></li>
-                  <li><sl-checkbox name="category" value="plaster"><span data-i18n="products.catalog.cat.plaster">Plaster</span></sl-checkbox> <em>(1)</em></li>
-                  <li><sl-checkbox name="category" value="tile-cleaner"><span data-i18n="products.catalog.cat.cleaner">Tile cleaner</span></sl-checkbox> <em>(2)</em></li>
+                  <li><sl-checkbox name="category" value="tile-adhesive"><span data-i18n="products.catalog.cat.adhesive">Tile adhesives</span></sl-checkbox> <em></em></li>
+                  <li><sl-checkbox name="category" value="aac-joining"><span data-i18n="products.catalog.cat.mortar">AAC joining solutions</span></sl-checkbox> <em></em></li>
+                  <li><sl-checkbox name="category" value="grout"><span data-i18n="products.catalog.cat.grout">Grout</span></sl-checkbox> <em></em></li>
+                  <li><sl-checkbox name="category" value="floor-screed"><span data-i18n="products.catalog.cat.screed">Floor screed</span></sl-checkbox> <em></em></li>
+                  <li><sl-checkbox name="category" value="plaster"><span data-i18n="products.catalog.cat.plaster">Plaster</span></sl-checkbox> <em></em></li>
+                  <li><sl-checkbox name="category" value="tile-cleaner"><span data-i18n="products.catalog.cat.cleaner">Tile cleaner</span></sl-checkbox> <em></em></li>
                 </ul>
               </sl-details>
 
@@ -191,10 +192,10 @@
                   <sl-button size="small" variant="text" data-clear-group="warranty">Clear</sl-button>
                 </div>
                 <ul class="product-filter__list">
-                  <li><sl-checkbox name="warranty" value="1-year">1 Year</sl-checkbox> <em>(2)</em></li>
-                  <li><sl-checkbox name="warranty" value="5-year">5 Year</sl-checkbox> <em>(5)</em></li>
-                  <li><sl-checkbox name="warranty" value="10-year">10 Year</sl-checkbox> <em>(4)</em></li>
-                  <li><sl-checkbox name="warranty" value="lifetime">Lifetime</sl-checkbox> <em>(1)</em></li>
+                  <li><sl-checkbox name="warranty" value="1-year">1 Year</sl-checkbox> <em></em></li>
+                  <li><sl-checkbox name="warranty" value="5-year">5 Year</sl-checkbox> <em></em></li>
+                  <li><sl-checkbox name="warranty" value="10-year">10 Year</sl-checkbox> <em></em></li>
+                  <li><sl-checkbox name="warranty" value="lifetime">Lifetime</sl-checkbox> <em></em></li>
                 </ul>
               </sl-details>
 
@@ -206,8 +207,8 @@
                   <sl-button size="small" variant="text" data-clear-group="country">Clear</sl-button>
                 </div>
                 <ul class="product-filter__list">
-                  <li><sl-checkbox name="country" value="india">India</sl-checkbox> <em>(9)</em></li>
-                  <li><sl-checkbox name="country" value="export">Export markets</sl-checkbox> <em>(4)</em></li>
+                  <li><sl-checkbox name="country" value="india">India</sl-checkbox> <em></em></li>
+                  <li><sl-checkbox name="country" value="export">Export markets</sl-checkbox> <em></em></li>
                 </ul>
               </sl-details>
             </aside>
@@ -283,6 +284,23 @@
                   </div>
                 </sl-card>
 
+                <sl-card class="product-card" data-product-slug="bondure-jointflex-grout" data-categories="grout" data-warranties="5-year,1-year" data-countries="india">
+                  <div class="product-card__stage">
+                    <div class="product-card__media" data-line="grout">
+                       <img class="product-card__photo" src="/products/joint-flex.webp" alt="Bondure Joint Flex Grout pack" loading="lazy" decoding="async" />
+                      
+                    </div>
+                  </div>
+                  <div class="product-card__swatches" role="presentation"><span class="product-card__swatch is-active" style="--swatch:#8f7f6e"></span><span class="product-card__swatch" style="--swatch:#c4b5a5"></span><span class="product-card__swatch" style="--swatch:#5c6965"></span><span class="product-card__swatch" style="--swatch:#e0d8ce"></span></div>
+                   <h2 class="product-card__title">Bondure Joint Flex Grout</h2>
+                  <p class="product-card__desc">Elastomeric grout for facades and high-movement joints — colour-stable in UV exposure.</p>
+                  <p class="product-card__meta">Warranty 1 Year, 5 Year · HPD</p>
+                  <div class="product-card__actions">
+                     <sl-button class="product-card__cta" size="medium" variant="primary" pill href="/products/bondure-jointflex-grout" data-transition>More info</sl-button>
+                    <a class="product-card__link" href="/connect" data-transition>Contact<span aria-hidden="true"> ›</span></a>
+                  </div>
+                </sl-card>
+
                 <sl-card class="product-card" data-product-slug="bondure-screed" data-categories="floor-screed" data-warranties="10-year,5-year" data-countries="india,export">
                   <div class="product-card__stage">
                     <div class="product-card__media" data-line="floor-screed">
@@ -317,36 +335,19 @@
                   </div>
                 </sl-card>
 
-                <sl-card class="product-card" data-product-slug="bondure-cleanshine" data-categories="tile-cleaner" data-warranties="1-year" data-countries="india,export">
+                <sl-card class="product-card" data-product-slug="bondure-tileshine" data-categories="tile-cleaner" data-warranties="1-year" data-countries="india,export">
                   <div class="product-card__stage">
                     <div class="product-card__media" data-line="tile-cleaner">
-                       <img class="product-card__photo" src="/products/bondure-base-b585-bag.webp" alt="Bondure Base B-585 sack" loading="lazy" decoding="async" />
+                       <img class="product-card__photo" src="/products/tile-shine.webp" alt="Bondure Tile Shine cleaner pack" loading="lazy" decoding="async" />
                       
                     </div>
                   </div>
                   <div class="product-card__swatches" role="presentation"><span class="product-card__swatch is-active" style="--swatch:#459188"></span><span class="product-card__swatch" style="--swatch:#74b0a7"></span><span class="product-card__swatch" style="--swatch:#2a635b"></span><span class="product-card__swatch" style="--swatch:#d5e8e5"></span></div>
-                  <h2 class="product-card__title">Bondure CleanShine</h2>
+                  <h2 class="product-card__title">Bondure Tile Shine</h2>
                   <p class="product-card__desc">Concentrate cleaner for ceramic and vitrified tiles — removes cement haze after installation.</p>
-                  <p class="product-card__meta">Warranty 1 Year · Pack 5 L</p>
+                  <p class="product-card__meta">Warranty 1 Year · Pack 500 ML</p>
                   <div class="product-card__actions">
-                    <sl-button class="product-card__cta" size="medium" variant="primary" pill href="/products/bondure-cleanshine" data-transition>More info</sl-button>
-                    <a class="product-card__link" href="/connect" data-transition>Contact<span aria-hidden="true"> ›</span></a>
-                  </div>
-                </sl-card>
-
-                <sl-card class="product-card" data-product-slug="bondure-stonecare-cleaner" data-categories="tile-cleaner" data-warranties="1-year" data-countries="india">
-                  <div class="product-card__stage">
-                    <div class="product-card__media" data-line="tile-cleaner">
-                       <img class="product-card__photo" src="/products/bondure-base-b555-bag.webp" alt="Bondure Base B-555 sack" loading="lazy" decoding="async" />
-                      
-                    </div>
-                  </div>
-                  <div class="product-card__swatches" role="presentation"><span class="product-card__swatch is-active" style="--swatch:#459188"></span><span class="product-card__swatch" style="--swatch:#74b0a7"></span><span class="product-card__swatch" style="--swatch:#2a635b"></span><span class="product-card__swatch" style="--swatch:#d5e8e5"></span></div>
-                  <h2 class="product-card__title">Bondure StoneCare Cleaner</h2>
-                  <p class="product-card__desc">Gentle cleaner for natural stone and marble — suited to efflorescence and routine maintenance.</p>
-                  <p class="product-card__meta">Warranty 1 Year · Pack 5 L</p>
-                  <div class="product-card__actions">
-                    <sl-button class="product-card__cta" size="medium" variant="primary" pill href="/products/bondure-stonecare-cleaner" data-transition>More info</sl-button>
+                    <sl-button class="product-card__cta" size="medium" variant="primary" pill href="/products/bondure-tileshine" data-transition>More info</sl-button>
                     <a class="product-card__link" href="/connect" data-transition>Contact<span aria-hidden="true"> ›</span></a>
                   </div>
                 </sl-card>
