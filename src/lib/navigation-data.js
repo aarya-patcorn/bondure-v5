@@ -1,10 +1,8 @@
 export const NAV_CATEGORY_LABELS = {
   "tile-adhesive": "Tile Adhesive",
   "aac-joining": "AAC Jointing Mortar",
-  grout: "Grout",
   "floor-screed": "Floor Screed",
   plaster: "Plaster",
-  "tile-cleaner": "Tile Cleaner",
 };
 
 export const NAV_PRODUCTS = [
@@ -14,8 +12,6 @@ export const NAV_PRODUCTS = [
   ["bondure-adhesive-b585", "Bondure Adhesive B-585", "tile-adhesive", "Bondure Adhesive B-585 bag"],
   ["bondure-adhesive-b555", "Bondure Adhesive B-555", "tile-adhesive", "Bondure Adhesive B-555 bag"],
   ["bondure-adhesive-b565", "Bondure Adhesive B-565", "tile-adhesive", "Bondure Adhesive B-565 bag"],
-  ["bondure-aquaguard-grout", "Bondure AquaGuard Grout", "grout", "Bondure AquaGuard Grout pack"],
-  ["bondure-flexjoint-grout", "Bondure FlexJoint Grout", "grout", "Bondure FlexJoint Grout pack"],
   ["bondure-screed", "Bondure Screed", "floor-screed", "Bondure Screed bag"],
   ["bondure-wallstark-plaster", "Bondure Wall Stark Plaster", "plaster", "Bondure Wall Stark Plaster bag"],
   ["bondure-exterender-plaster", "Bondure ExteRender Plaster", "plaster", "Bondure ExteRender Plaster bag"],
@@ -29,5 +25,4 @@ export const NAV_TOOLS = [
   ["aac", "/tools/tool-aac-joining.png"],
   ["cleaner", "/tools/tool-tile-cleaner.png"],
   ["plaster", "/tools/tool-plaster.png"],
-  ["grout", "/tools/tool-grout.png"],
 ].map(([id, illustration]) => ({ id, illustration }));

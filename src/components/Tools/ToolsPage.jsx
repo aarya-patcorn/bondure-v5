@@ -17,7 +17,6 @@ import {
   getLocalizedRecommenderStepNames,
   getLocalizedTools,
   getTool,
-  groutBags,
   plasterBags,
   productsByCategory,
   recommend,
@@ -108,41 +107,6 @@ const CALCULATORS = {
         { label: "Joint thickness", value: `${result.jointMm} mm` },
         { label: "Coverage / bag", value: `${result.coverageSqFtPerBag} sq.ft` },
         { label: "Bag size", value: `${result.product.bagKg} kg` },
-        { label: "Waste allowance", value: `${result.wastePercent}%` },
-      ],
-    }),
-  },
-  grout: {
-    title: "Grout coverage",
-    category: "grout",
-    fields: [
-      { id: "tl", label: "Tile length (mm)", min: 1, step: 1, defaultValue: "600" },
-      { id: "tw", label: "Tile width (mm)", min: 1, step: 1, defaultValue: "600" },
-      { id: "joint", label: "Joint width (mm)", min: 0.5, step: 0.5, defaultValue: "3" },
-      { id: "depth", label: "Joint depth (mm)", min: 1, step: 0.5, defaultValue: "6" },
-      { id: "fl", label: "Floor length (ft)", min: 0, step: 0.1, defaultValue: "20" },
-      { id: "fw", label: "Floor width (ft)", min: 0, step: 0.1, defaultValue: "15" },
-    ],
-    rows: [["tl", "tw"], ["joint", "depth"], ["fl", "fw"]],
-    calculate: (productId, values) =>
-      groutBags({
-        productId,
-        areaSqFt: Number(values.fl) * Number(values.fw),
-        tileLMm: Number(values.tl),
-        tileWMm: Number(values.tw),
-        jointMm: Number(values.joint),
-        depthMm: Number(values.depth),
-      }),
-    format: (result) => ({
-      metric: result.bags,
-      unit: "bags",
-      label: "Grout bags required",
-      rows: [
-        { label: "Product", value: result.product.name },
-        { label: "Approx. weight", value: `${result.kg} kg` },
-        { label: "Area", value: `${result.areaSqFt.toFixed(1)} sq.ft` },
-        { label: "Joint width", value: `${result.jointMm} mm` },
-        { label: "Unit size", value: `${result.product.bagKg} kg` },
         { label: "Waste allowance", value: `${result.wastePercent}%` },
       ],
     }),
@@ -299,7 +263,7 @@ const DE_UI = {
   "No exact match — contact sales for a site-specific recommendation.": "Keine genaue Übereinstimmung. Kontaktieren Sie den Vertrieb für eine projektspezifische Empfehlung.",
   "Open coverage tool": "Verbrauchsrechner öffnen",
   "Site tools for every Bondure line": "Baustellen-Tools für jede Bondure Produktlinie",
-  "Coverage and yield estimators for tile adhesive, AAC joining, grout, floor screed, plaster, and tile cleaner — plus a product recommender for site-ready picks.": "Verbrauchs- und Ergiebigkeitsrechner für Fliesenkleber, Porenbeton-Fugenmörtel, Fugenmörtel, Bodenestrich, Putz und Fliesenreiniger sowie eine Produktempfehlung für den direkten Baustelleneinsatz.",
+  "Coverage and yield estimators for tile adhesive, AAC joining, floor screed, plaster, and tile cleaner — plus a product recommender for site-ready picks.": "Verbrauchs- und Ergiebigkeitsrechner für Fliesenkleber, Porenbeton-Fugenmörtel, Bodenestrich, Putz und Fliesenreiniger sowie eine Produktempfehlung für den direkten Baustelleneinsatz.",
   "Open tool": "Tool öffnen",
 };
 
@@ -798,7 +762,7 @@ export default function ToolsPage() {
               {localize(locale, "Site tools for every Bondure line")}
             </h1>
             <p className="tools-hub__copy">
-              {localize(locale, "Coverage and yield estimators for tile adhesive, AAC joining, grout, floor screed, plaster, and tile cleaner — plus a product recommender for site-ready picks.")}
+              {localize(locale, "Coverage and yield estimators for tile adhesive, AAC joining, floor screed, plaster, and tile cleaner — plus a product recommender for site-ready picks.")}
             </p>
             <div className="tools-hub__grid" ref={toolsGridRef}>
               {tools.map((tool) => (

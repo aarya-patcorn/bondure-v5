@@ -11,7 +11,7 @@ import HomeSustainability from "@/components/Home/HomeSustainability";
 import "@/components/Home/HomePage.css";
 
 export default function Home() {
-  preload("/optimized/home/hero-poster.webp", {
+  preload("/optimized/home/home-page-intro-poster.webp", {
     as: "image",
     fetchPriority: "high",
   });

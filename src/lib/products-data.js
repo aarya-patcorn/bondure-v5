@@ -1,7 +1,6 @@
 export const CATEGORY_LABELS = {
   "tile-adhesive": "Tile Adhesive",
   "aac-joining": "AAC Jointing Mortar",
-  grout: "Grout",
   "floor-screed": "Floor Screed",
   plaster: "Plaster",
   "tile-cleaner": "Tile Cleaner",
@@ -10,7 +9,6 @@ export const CATEGORY_LABELS = {
 export const CATEGORY_STANDARDS = {
   "aac-joining": ["EN 998-2", "IS 2250"],
   "tile-adhesive": ["EN 12004", "IS 15477"],
-  grout: ["EN 13888", "IS tested"],
   "floor-screed": ["EN 13813", "IS 2571"],
   plaster: ["EN 998-1", "IS 1661"],
   "tile-cleaner": ["EN tested", "IS tested"],
@@ -38,6 +36,8 @@ export const PRODUCT_PATCH_ACCENTS = {
   b555: buildPatchAccent("#6B3FA0"),
   b565: buildPatchAccent("#BE1E2D"),
   b585: buildPatchAccent("#1F4D47"),
+  wallstark: buildPatchAccent("#17233A"),
+  screed: buildPatchAccent("#459188"),
 };
 
 export const PRODUCT_INTRO_ACCENT = PRODUCT_PATCH_ACCENTS.b555;
@@ -45,6 +45,14 @@ export const PRODUCT_INTRO_ACCENT = PRODUCT_PATCH_ACCENTS.b555;
 export const PRODUCT_SPEC_ACCENT = PRODUCT_PATCH_ACCENTS.b555;
 
 export function getProductPatchId(product) {
+  if (product.slug === "bondure-wallstark-plaster") {
+    return "wallstark";
+  }
+
+  if (product.slug === "bondure-screed") {
+    return "screed";
+  }
+
   const match = product.image?.match(/b(555|565|585)/i);
   return match ? `b${match[1]}` : "b555";
 }
@@ -80,19 +88,6 @@ export const CATEGORY_SPECS = {
     bondsLabel: "Bonds to",
     bonds:
       "Vitrified and ceramic tile, natural stone, concrete, plaster, and existing tile surfaces.",
-  },
-  grout: {
-    primary: "45 ft²",
-    primaryLabel: "Joint coverage",
-    primaryCopy:
-      "Typical coverage for a 5 kg pack, depending on tile and joint dimensions.",
-    secondary: "30 min",
-    secondaryLabel: "Working time",
-    tertiary: "24 hr",
-    tertiaryLabel: "Full cure",
-    bondsLabel: "Designed for",
-    bonds:
-      "Ceramic, vitrified, porcelain, and natural-stone tile joints in dry and wet areas.",
   },
   "floor-screed": {
     primary: "25 ft²",
@@ -198,37 +193,6 @@ export const CATEGORY_FEATURES = {
       },
     ],
   },
-  grout: {
-    title: "Grout Systems",
-    features: [
-      {
-        title: "Stain-Resistant Joints",
-        copy: "Micro-sealed surfaces repel oils, cleaning agents, and everyday soiling in kitchens and wet rooms.",
-      },
-      {
-        title: "Flexible Movement Accommodation",
-        copy: "Elastomeric formulations handle thermal movement and substrate deflection without joint cracking.",
-      },
-      {
-        title: "Colour-Stable Finishes",
-        copy: "UV-stable pigments maintain consistent joint colour on facades and high-traffic interior floors.",
-      },
-    ],
-    gallery: [
-      {
-        src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80",
-        alt: "Close-up of tiled floor with clean grout lines",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80",
-        alt: "Tiled shower wall with precise joints",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=900&q=80",
-        alt: "Stone and tile facade detail",
-      },
-    ],
-  },
   "floor-screed": {
     title: "Floor Screeds",
     features: [
@@ -278,16 +242,16 @@ export const CATEGORY_FEATURES = {
     ],
     gallery: [
       {
-        src: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80",
-        alt: "Plaster application on interior walls",
+        src: "/home-media/adhesive-testing.webp",
+        alt: "Product testing and formulation work",
       },
       {
-        src: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=80",
-        alt: "Rendered building facade",
+        src: "/home-media/aac-joining.webp",
+        alt: "Mortar application on masonry blocks",
       },
       {
-        src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80",
-        alt: "Masonry wall being finished on site",
+        src: "/home-media/site-image-1.webp",
+        alt: "Bondure plaster mixing demonstration on site",
       },
     ],
   },
@@ -373,30 +337,6 @@ export const PRODUCTS = [
     line: "tile-adhesive",
   },
   {
-    slug: "bondure-aquaguard-grout",
-    title: "Bondure AquaGuard Grout",
-    description:
-      "Stain-resistant, flexible grout for wet areas — micro-sealed surface repels oils and cleaning agents.",
-    meta: "Warranty 5 Year, 10 Year · Green Pro, HPD",
-    category: "grout",
-    collectionCategory: "Grout",
-    image: "/products/bondure-base-b585-bag.webp",
-    imageAlt: "Bondure AquaGuard Grout pack",
-    line: "grout",
-  },
-  {
-    slug: "bondure-flexjoint-grout",
-    title: "Bondure FlexJoint Grout",
-    description:
-      "Elastomeric grout for facades and high-movement joints — colour-stable in UV exposure.",
-    meta: "Warranty 1 Year, 5 Year · HPD",
-    category: "grout",
-    collectionCategory: "Grout",
-    image: "/products/bondure-base-b555-bag.webp",
-    imageAlt: "Bondure FlexJoint Grout pack",
-    line: "grout",
-  },
-  {
     slug: "bondure-screed",
     title: "Bondure Screed",
     description:
@@ -416,7 +356,7 @@ export const PRODUCTS = [
     meta: "Warranty 5 Year, 10 Year · IS 1661",
     category: "plaster",
     collectionCategory: "Plaster",
-    image: "/products/wall-stark.webp",
+    image: "/media/walltarkplaster.png",
     imageAlt: "Bondure Wall Stark Plaster bag",
     line: "plaster",
   },
@@ -505,7 +445,6 @@ const DEMO_VIDEO = {
 const SECONDARY_VIEW_BY_CATEGORY = {
   "aac-joining": "/products/aac-blocks.webp",
   "tile-adhesive": "/spotlight/tile-adhesive-application.png",
-  "grout": "/home-media/adhesive-work-2.webp",
   "floor-screed": "/products/screed-full.webp",
   "plaster": "/products/wall-stark-1.webp",
   "tile-cleaner": "/home-media/site-testing.webp",
@@ -597,9 +536,8 @@ export function getAllProductSlugs() {
 const DE_CATEGORY_LABELS = {
   "tile-adhesive": "Fliesenkleber",
   "aac-joining": "Porenbeton-Fugenmörtel",
-  "grout": "Fugenmörtel",
   "floor-screed": "Bodenestrich",
-  "plaster": "Putz",
+  plaster: "Putz",
   "tile-cleaner": "Fliesenreiniger",
 };
 
@@ -627,14 +565,6 @@ const DE_PRODUCT_COPY = {
   "bondure-adhesive-b565": {
     description: "Standfeste Rezeptur für großformatiges Feinsteinzeug auf Böden und vertikale Natursteinbekleidungen.",
     imageAlt: "Sack Bondure Adhesive B-565 Fliesenkleber",
-  },
-  "bondure-aquaguard-grout": {
-    description: "Fleckenbeständiger, flexibler Fugenmörtel für Nassbereiche; die mikroversiegelte Oberfläche weist Öle und Reinigungsmittel ab.",
-    imageAlt: "Gebinde Bondure AquaGuard Grout",
-  },
-  "bondure-flexjoint-grout": {
-    description: "Elastomerer Fugenmörtel für Fassaden und stark bewegungsbeanspruchte Fugen mit UV-beständiger Farbe.",
-    imageAlt: "Gebinde Bondure FlexJoint Grout",
   },
   "bondure-screed": {
     description: "Zementärer Bodenestrich für Ausgleichsschichten vor der Fliesenverlegung, für 10–40 mm Dicke und mit kontrollierter Schwindung.",
@@ -674,14 +604,6 @@ const DE_CATEGORY_SPECS = {
     tertiaryLabel: "Verarbeitungszeit",
     bondsLabel: "Haftet auf",
     bonds: "Feinsteinzeug und Keramikfliesen, Naturstein, Beton, Putz und vorhandenen Fliesenflächen.",
-  },
-  grout: {
-    primaryLabel: "Fugenreichweite",
-    primaryCopy: "Typische Ergiebigkeit eines 5-kg-Gebindes, abhängig von Fliesen- und Fugenabmessungen.",
-    secondaryLabel: "Verarbeitungszeit",
-    tertiaryLabel: "Vollständig ausgehärtet",
-    bondsLabel: "Entwickelt für",
-    bonds: "Fugen von Keramik, Feinsteinzeug, Porzellan und Naturstein in Trocken- und Nassbereichen.",
   },
   "floor-screed": {
     primaryLabel: "Ergiebigkeit pro Sack",
@@ -728,15 +650,6 @@ const DE_CATEGORY_FEATURES = {
     ],
     gallery: ["Verlegung großformatiger Bodenfliesen", "Gefliestes Badezimmer", "Moderner gefliester Wohnraum"],
   },
-  grout: {
-    title: "Fugensysteme",
-    features: [
-      ["Fleckenbeständige Fugen", "Mikroversiegelte Oberflächen weisen Öle, Reinigungsmittel und alltägliche Verschmutzungen in Küchen und Nassräumen ab."],
-      ["Flexible Bewegungsaufnahme", "Elastomere Rezepturen nehmen thermische Bewegung und Verformung des Untergrunds auf, ohne dass die Fugen reißen."],
-      ["Farbstabile Oberflächen", "UV-beständige Pigmente erhalten eine gleichmäßige Fugenfarbe an Fassaden und stark beanspruchten Innenböden."],
-    ],
-    gallery: ["Nahaufnahme eines Fliesenbodens mit sauberen Fugen", "Geflieste Duschwand mit präzisen Fugen", "Detail einer Fassade aus Naturstein und Fliesen"],
-  },
   "floor-screed": {
     title: "Bodenestriche",
     features: [
@@ -753,7 +666,11 @@ const DE_CATEGORY_FEATURES = {
       ["Qualitäten für innen und außen", "Spezielle Rezepturen für Innenwandoberflächen und witterungsbeständige Außenputzsysteme."],
       ["Starke Untergrundhaftung", "Die modifizierte Haftung unterstützt den sicheren Verbund von Putz mit vorbereitetem Mauerwerk und Beton ohne Ablösung."],
     ],
-    gallery: ["Putzauftrag auf Innenwänden", "Verputzte Gebäudefassade", "Fertigstellung einer Mauerwerkswand auf der Baustelle"],
+    gallery: [
+      "Produktprüfung und Formulierungsarbeit",
+      "Mörtelauftrag auf Mauerwerk",
+      "Bondure-Putz-Demonstration auf der Baustelle",
+    ],
   },
   "tile-cleaner": {
     title: "Fliesenpflege",

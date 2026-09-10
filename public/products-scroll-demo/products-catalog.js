@@ -183,7 +183,6 @@
     const categoryLabels = {
       "tile-adhesive": "Tile Adhesive",
       "aac-joining": "AAC Jointing Mortar",
-      grout: "Grout",
       "floor-screed": "Floor Screed",
       plaster: "Plaster",
       "tile-cleaner": "Tile Cleaner",
@@ -192,7 +191,6 @@
     const categoryStandards = {
       "aac-joining": ["EN 998-2", "IS 2250"],
       "tile-adhesive": ["EN 12004", "IS 15477"],
-      grout: ["EN 13888", "IS tested"],
       "floor-screed": ["EN 13813", "IS 2571"],
       plaster: ["EN 998-1", "IS 1661"],
       "tile-cleaner": ["EN tested", "IS tested"],

@@ -288,7 +288,7 @@ export default function ProductDetailPage({ product }) {
                     >
                       <img
                         className="product-spec__selected-image"
-                        src={localizedProduct.image}
+                        src={localizedProduct.specImage || localizedProduct.image}
                         alt={localizedProduct.imageAlt}
                         loading="eager"
                         decoding="async"

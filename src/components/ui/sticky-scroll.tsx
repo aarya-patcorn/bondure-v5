@@ -67,16 +67,6 @@ const stickyTestimonials: StickyTestimonial[] = [
     cutout: true,
   },
   {
-    id: 2,
-    name: 'Micheal Baur',
-    role: 'General Contractor, Hamburg',
-    quote:
-      'What I appreciate is how clearly each system is documented. Substrate prep, consumption rates and curing — it all translates cleanly to site.',
-    image: '/clients/sticky-scroll/micheal-baur.jpg',
-    alt: 'Micheal Baur in a professional interview setting',
-    cutout: true,
-  },
-  {
     id: 3,
     name: 'Lukas Mayer',
     role: 'Bauarbeiter, Hamburg',
@@ -153,11 +143,6 @@ const stickyTestimonialsDe = [
     role: 'Bauingenieur, Mumbai',
     quote: 'Bondure Systeme bewähren sich unter realen Monsunbedingungen. Untergrundvorbereitung, offene Zeit und endgültige Haftfestigkeit blieben bei jedem Hochhaus, in dem wir sie eingesetzt haben, konstant.',
     alt: 'Arjun Mehta, Bauingenieur',
-  },
-  {
-    role: 'Planerin, Hamburg',
-    quote: 'Ich schätze besonders, wie klar jedes System dokumentiert ist. Untergrundvorbereitung, Verbrauchsmengen und Aushärtung lassen sich allesamt eindeutig auf die Baustelle übertragen.',
-    alt: 'Lena Schmidt in einer professionellen Interviewsituation',
   },
   {
     role: 'Projektleiterin, Bengaluru',
@@ -255,8 +240,8 @@ const StickyScroll = forwardRef<HTMLElement>((props, ref) => {
     ? stickyTestimonials.map((testimonial, index) => ({ ...testimonial, ...stickyTestimonialsDe[index] }))
     : stickyTestimonials;
   const leftTestimonials = testimonials.slice(0, 4);
-  const centerTestimonials = testimonials.slice(4, 7);
-  const rightTestimonials = testimonials.slice(7, 11);
+  const centerTestimonials = testimonials.slice(4, 6);
+  const rightTestimonials = testimonials.slice(6, 10);
 
   return (
     <section
@@ -276,7 +261,7 @@ const StickyScroll = forwardRef<HTMLElement>((props, ref) => {
             ))}
           </div>
 
-          <div className="sticky top-0 col-span-6 grid h-screen min-h-0 w-full grid-rows-3 gap-2 md:col-span-4">
+          <div className="sticky top-0 col-span-6 grid h-screen min-h-0 w-full grid-rows-2 gap-2 md:col-span-4">
             {centerTestimonials.map((testimonial) => (
               <PortraitTestimonialCard
                 testimonial={testimonial}

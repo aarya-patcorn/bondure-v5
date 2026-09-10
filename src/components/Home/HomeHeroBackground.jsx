@@ -1,49 +1,64 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const HERO_VIDEO = {
   src: "/home-media/home_page_intro.mp4",
-  // poster: "/optimized/home/hero-poster.webp",
+  poster: "/optimized/home/home-page-intro-poster.webp",
 };
 
 export default function HomeHeroBackground() {
+  const videoRef = useRef(null);
   const [motionEnabled, setMotionEnabled] = useState(false);
-  const [loadVideo, setLoadVideo] = useState(false);
 
   useEffect(() => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const saveData = navigator.connection?.saveData;
-    const enabled = !reducedMotion && !saveData;
-    setMotionEnabled(enabled);
+    setMotionEnabled(!reducedMotion && !saveData);
+  }, []);
 
-    if (!enabled) return undefined;
+  useEffect(() => {
+    if (!motionEnabled) return undefined;
 
-    const scheduleVideo = () => setLoadVideo(true);
+    const video = videoRef.current;
+    if (!video) return undefined;
 
-    if ("requestIdleCallback" in window) {
-      const idleId = window.requestIdleCallback(scheduleVideo, { timeout: 3000 });
-      return () => window.cancelIdleCallback(idleId);
+    const playVideo = () => {
+      const attempt = video.play();
+      if (attempt && typeof attempt.catch === "function") {
+        attempt.catch(() => {});
+      }
+    };
+
+    video.addEventListener("canplay", playVideo);
+    video.addEventListener("loadeddata", playVideo);
+
+    if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+      playVideo();
     }
 
-    const timeoutId = window.setTimeout(scheduleVideo, 2000);
-    return () => window.clearTimeout(timeoutId);
-  }, []);
+    return () => {
+      video.removeEventListener("canplay", playVideo);
+      video.removeEventListener("loadeddata", playVideo);
+    };
+  }, [motionEnabled]);
 
   return (
     <div className="home-hero__background">
-      {/* <img
+      <img
         className="home-hero__video-poster"
         src={HERO_VIDEO.poster}
         alt=""
         decoding="async"
         fetchPriority="high"
         loading="eager"
-      /> */}
-      {motionEnabled && loadVideo ? (
+      />
+      {motionEnabled ? (
         <video
+          ref={videoRef}
           className="home-hero__video"
           src={HERO_VIDEO.src}
+          poster={HERO_VIDEO.poster}
           autoPlay
           muted
           loop

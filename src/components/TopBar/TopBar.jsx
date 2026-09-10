@@ -8,6 +8,7 @@ import gsap from "gsap";
 
 import { useViewTransition } from "@/hooks/useViewTransition";
 import { NAV_CATEGORY_LABELS, NAV_PRODUCTS, NAV_TOOLS } from "@/lib/navigation-data";
+import { PRODUCTS } from "@/lib/products-data";
 import LanguageToggle from "../LanguageToggle/LanguageToggle";
 import BondureLogo from "../BondureLogo/BondureLogo";
 import { useLocale } from "../LocaleProvider/LocaleProvider";
@@ -25,24 +26,24 @@ const MOBILE_NAV_ITEMS = [{ key: "home", href: "/" }, ...NAV_ITEMS];
 const PRODUCT_CATEGORIES = Object.entries(NAV_CATEGORY_LABELS);
 const PRODUCT_CATEGORY_IMAGES = {
   "aac-joining": "/spotlight/02.webp",
-  grout: "/media/tileproduct.webp",
   "floor-screed": "/media/tilefloorproduct.webp",
   plaster: "/spotlight/services3AAC.webp",
-  "tile-cleaner": "/media/tilecleaner.webp",
 };
 const TILE_ADHESIVE_IMAGES = [
   "/products/bondure-base-b555-bag.webp",
   "/products/bondure-base-b585-bag.webp",
   "/products/bondure-base-b565-bag.webp",
 ];
-const TOOL_MENU_ORDER = ["adhesive", "screed", "aac", "cleaner", "plaster", "grout"];
+const PRODUCT_IMAGES_BY_SLUG = Object.fromEntries(
+  PRODUCTS.map((product) => [product.slug, product.image])
+);
+const TOOL_MENU_ORDER = ["adhesive", "screed", "aac", "cleaner", "plaster"];
 const TOOL_MENU_LABELS = {
   adhesive: ["Tile Adhesive Calculator", "Fliesenkleber-Rechner"],
   screed: ["Floor Screed Calculator", "Estrich-Rechner"],
   aac: ["AAC Mortar Calculator", "Porenbetonmörtel-Rechner"],
   cleaner: ["Tile Cleaner Calculator", "Fliesenreiniger-Rechner"],
   plaster: ["Wall Plaster Calculator", "Wandputz-Rechner"],
-  grout: ["Tile Grout Calculator", "Fugenmörtel-Rechner"],
 };
 
 const CHROME_TEXT = {
@@ -73,10 +74,8 @@ const CHROME_TEXT = {
 const CATEGORY_LABELS_DE = {
   "tile-adhesive": "Fliesenkleber",
   "aac-joining": "Porenbeton-Fugenmörtel",
-  grout: "Fugenmörtel",
   "floor-screed": "Estrich",
   plaster: "Putz",
-  "tile-cleaner": "Fliesenreiniger",
 };
 
 const TopBar = () => {
@@ -331,7 +330,13 @@ const TopBar = () => {
               {locale === "de" ? CATEGORY_LABELS_DE[category] || label : label}
             </button>
           ))}
-          <a href="/products" onClick={(event) => { event.preventDefault(); navigateTo("/products"); }}>{chromeText.viewAll} <span aria-hidden="true">→</span></a>
+          <button
+            type="button"
+            className="products-mega-menu__view-all"
+            onClick={() => navigateTo("/products")}
+          >
+            {chromeText.viewAll}
+          </button>
         </div>
 
         <div className="products-mega-menu__panel" role="tabpanel">
@@ -348,7 +353,12 @@ const TopBar = () => {
               >
                 <span className="products-mega-card__image">
                   <img
-                    src={activeProductCategory === "tile-adhesive" ? TILE_ADHESIVE_IMAGES[index] : PRODUCT_CATEGORY_IMAGES[activeProductCategory]}
+                    src={
+                      activeProductCategory === "tile-adhesive"
+                        ? TILE_ADHESIVE_IMAGES[index]
+                        : PRODUCT_IMAGES_BY_SLUG[product.slug] ||
+                          PRODUCT_CATEGORY_IMAGES[activeProductCategory]
+                    }
                     alt={locale === "de"
                       ? `Produktabbildung ${product.title.replace(/^Bondure\s+/i, "")}`
                       : product.imageAlt}
